@@ -1,0 +1,12 @@
+.editor {
+  flex-basis: 50%;
+  border-right: 1px solid #e8e7e6;
+  padding: 0.5em 2em;
+  overflow-y: auto;
+}
+
+.etitle {
+  width: 100%;
+  text-align: center;
+  color: #385438;
+}

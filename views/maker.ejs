@@ -5,17 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maker</title>
   <link rel="stylesheet" href="/stylesheets/login.css">
+  <link rel="stylesheet" href="/stylesheets/editor.css">
+  <link rel="stylesheet" href="/stylesheets/preview.css">
+  <link rel="stylesheet" href="/stylesheets/maker.css">
 </head>
 <body>
   <section class="maker">
-    <%-include('include/header.ejs')%>
+    <%-include('include/header.ejs') %>
+    <div class="container">
+      <section class="editor">
+        <h1 class="etitle">Card Maker</h1>
+      </section>
+      <section class="preview">
+        <h1 class="ptitle">Card Preview</h1>
+      </section>
+    </div>
+    <%-include('include/footer.ejs') %>
   </section>
   <%= email %>
   <script>
-    const email = localStorage.getItem("email")
-    //localStorage에 값이 없을 때 null인가 아니면 undefined
-    //선언없이 호출할 때 주로 undefined가 출력됨
-    console.log(email); // null
+    const myEmail = localStorage.getItem("email")
+    //localStorage에 값이 없을 때 null인가|아니면 undefined
+    //선언없이 호출할 때 주로 undefined가 출력됨.
+    console.log(myEmail);//null
   </script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+.preview {
+  flex-basis: 50%;
+  overflow-y: auto;
+}
+
+.ptitle {
+  width: 100%;
+  text-align: center;
+  color: #385438;
+}
