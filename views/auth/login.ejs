@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+  <script type="module">
+    const loginGoogle = () => {
+      console.log('google');
+      const myEmail = 'test@hot.com'
+      window.location.href =`/maker?email=${myEmail}`
+    }
+    const loginKakao = () => {
+      console.log('kakao');
+    }
+    window.loginGoogle = loginGoogle
+    window.loginKakao = loginKakao
+  </script>
+</head>
+<body>
+  <section class="login">
+    <!-- header section -->
+    <header class="header">
+    <img src="/images/logo.png" alt="logo">
+    <h1>NameCard Maker</h1>
+    </header>
+    <!-- header section -->
+
+    <!-- login section -->
+      <section>
+        <h1>Login</h1>
+        <ul class="list">
+          <li class="item">
+            <button class="btn google" onclick="javascript:loginGoogle()">Google</button>
+          </li>
+          <li class="item">
+            <button class="btn kakao" onclick="javascript:loginKakao()">Kakao</button>
+          </li>
+        </ul>
+      </section>
+    <!-- login section -->
+
+    <!-- footer section -->
+    <footer class="footer">
+    <p class="title">&copy; 2025 NameCard Maker</p>
+    </footer>
+    <!-- footer section -->
+  </section>
+</body>
+</html>

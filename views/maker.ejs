@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maker</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+</head>
+<body>
+  <section class="maker">
+    <%-include('include/header.ejs')%>
+  </section>
+  <%= email %>
+  <script>
+    const email = localStorage.getItem("email")
+    //localStorage에 값이 없을 때 null인가 아니면 undefined
+    //선언없이 호출할 때 주로 undefined가 출력됨
+    console.log(email); // null
+  </script>
+</body>
+</html>
