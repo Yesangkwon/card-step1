@@ -3,7 +3,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  max-width: 70em;
+  max-width: 80em;
   background-color: white;
   border-radius: 30px;
 }

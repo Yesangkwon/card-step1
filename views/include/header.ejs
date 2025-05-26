@@ -2,12 +2,12 @@
   const userID = window.localStorage.getItem('userID')
   console.log(userID);
   if(userID){ // 구글 로그인이 성공하면 localStorage에 userID를 담는다.
-    document.write('<button class="btn logout" href="/logout">로그아웃</button>')
+    document.write('<button id="logout" class="btn logout" href="/logout">로그아웃</button>')
   }else{
-    document.write('<button class="btn login" href="/login>로그인</button>')
+    document.write('<button class="btn login" href="/login">로그인</button>')
   }
 </script>
 <header class="header">
-  <img src="/images/logo.png" alt="logo">
+  <img src="/images/logo.png" alt="logo" class="logo">
   <h1>NameCard Maker</h1>
 </header>

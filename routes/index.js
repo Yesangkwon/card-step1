@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 
 //로그인의 상태값을 가져오는 방법은
 //1)세션, 2)query string, 3)localStorage
+//goToMaker() -> maker?id=userID
 router.get('/maker', function(req, res, next) {
   const userID = req.query.id
   console.log(userID);
@@ -15,6 +16,6 @@ router.get('/maker', function(req, res, next) {
     return res.redirect('/')
   } 
   res.render('index', { title: 'maker', pageName: 'maker.ejs', userID:userID });
-});
+})
 
 module.exports = router;

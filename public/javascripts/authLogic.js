@@ -35,8 +35,8 @@ export const onAuthChange = (auth) => {
       console.log(user);
       //Promise에서는 요청이 성공하면 resolve 함수를 호출해줌
       //요청한 곳으로 반환해줄 값이 존재하면 파라미터 자리에 넣어줌
-      resolve(user);
-    })
+      resolve(user)
+    });
   })
 }
 
