@@ -22,12 +22,11 @@
     </div>
     <%-include('include/footer.ejs') %>
   </section>
-  <%= email %>
   <script>
-    const myEmail = localStorage.getItem("email")
+    const userID = localStorage.getItem("email")
     //localStorage에 값이 없을 때 null인가|아니면 undefined
     //선언없이 호출할 때 주로 undefined가 출력됨.
-    console.log(myEmail);//null
+    console.log(userID);//null
   </script>
 </body>
 </html>

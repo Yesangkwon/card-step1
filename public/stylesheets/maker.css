@@ -5,6 +5,7 @@
   flex-direction: column;
   max-width: 70em;
   background-color: white;
+  border-radius: 30px;
 }
 
 .container {

@@ -6,23 +6,46 @@
   <title>Login Page</title>
   <link rel="stylesheet" href="/stylesheets/login.css">
   <script type="module">
-    const loginGoogle = () => {
-      console.log('google');
-      const myEmail = 'test@hot.com'
-      window.location.href =`/maker?email=${myEmail}`
+    //AuthLogic클래스는 export 다음에 default가 있어서 {}씌우면 안됨
+    //loginGoogle함수는 default가 없어서 {}반드시 씌워야 함.
+    //default는 한번만 사용이 가능함.
+    import AuthLogic, { loginGoogle } from '/javascripts/authLogic.js'
+    import { app } from '/javascripts/firebase.js'
+    const authLogic = new AuthLogic()
+    //구글 로그인이 성공하면 서버에서 uid를 발급해줌.
+    //uid가 사용자 구분값 - firebase Realtime Database에서 식별자로 사용할 것임
+    //아래 함수는 구글 로그인이 성공하면 호출됨
+    //로그인이 성공하면 uid가 있고 실패하면 uid가 없다.
+    const goToMaker = (userID) => {
+      window.location.href = `/maker?id=${userID}`
     }
-    const loginKakao = () => {
+    const btnGoogle = async() => {
+      console.log('google');
+      try{
+        const user = await loginGoogle(authLogic.auth, authLogic.googleProvider)
+        //구글 인증 후 응답으로 받은 프로필 정보에서 userID값을 꺼낸다.
+        window.localStorage.setItem("userID", user.uid)
+        if(user.uid){
+          goToMaker(user.uid)
+        }
+      }catch(error){
+        console.error('로그인 오류 입니다.', error);
+      }
+    }
+    const btnKakao = () => {
       console.log('kakao');
     }
-    window.loginGoogle = loginGoogle
-    window.loginKakao = loginKakao
+    //아래 코드는 함수 호이스팅이 일어나지 않아서 undefined이슈
+    //해결하기 위해서 추가함.
+    window.btnGoogle = btnGoogle
+    window.btnKakao = btnKakao
   </script>
 </head>
 <body>
   <section class="login">
     <!-- header section -->
     <header class="header">
-    <img src="/images/logo.png" alt="logo">
+    <img src="/images/logo.png" alt="logo" class="logo">
     <h1>NameCard Maker</h1>
     </header>
     <!-- header section -->
@@ -32,10 +55,10 @@
         <h1>Login</h1>
         <ul class="list">
           <li class="item">
-            <button class="btn google" onclick="javascript:loginGoogle()">Google</button>
+            <button class="btn google" onclick="javascript:btnGoogle()">Google</button>
           </li>
           <li class="item">
-            <button class="btn kakao" onclick="javascript:loginKakao()">Kakao</button>
+            <button class="btn kakao" onclick="javascript:btnKakao()">Kakao</button>
           </li>
         </ul>
       </section>
